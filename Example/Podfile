@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'ZCMAlertView_Example' do
+  pod 'ZCMAlertView', :path => '../'
+
+  target 'ZCMAlertView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
