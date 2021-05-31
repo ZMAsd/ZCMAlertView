@@ -1,0 +1,16 @@
+PODS:
+  - ZCMAlertView (0.1.0)
+
+DEPENDENCIES:
+  - ZCMAlertView (from `../`)
+
+EXTERNAL SOURCES:
+  ZCMAlertView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZCMAlertView: 3643afb2c644d955cd979fa29bcf674b58c8242f
+
+PODFILE CHECKSUM: d1899695e630a7bdd440449829018ce047e72f4d
+
+COCOAPODS: 1.10.0
