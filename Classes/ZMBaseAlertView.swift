@@ -27,6 +27,16 @@ class ZMBaseAlertView: UIView {
         view.backgroundColor = .white
         return view
     }()
+    
+    // 关闭按钮
+    lazy var closeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: ""), for: .normal)
+        button.addTarget(self, action: #selector(hide), for: .touchUpInside)
+        button.backgroundColor = .red
+        return button
+    }()
+    
     /// 屏幕高度
     private let screen_height = UIScreen.main.bounds.height
     /// 父类视图
@@ -61,19 +71,28 @@ class ZMBaseAlertView: UIView {
     private func setupSubViews() {
         self.addSubview(backgroundView)
         self.addSubview(containerView)
+        containerView.addSubview(closeButton)
         
+        // 背景图
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 
+        // 容器
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerTopLayout = containerView.topAnchor.constraint(equalTo: topAnchor, constant: screen_height)
         containerTopLayout?.isActive = true
         containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
         containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: containerHeight).isActive = true
+        
+        // 取消按钮
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
+        closeButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     /// 显示
